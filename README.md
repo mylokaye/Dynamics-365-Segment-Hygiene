@@ -26,9 +26,12 @@ FILTER(
 🔠 Filters one or more word characters, dots, or hyphens before the @, A domain name with similar characters, A top-level domain with at least two characters.
 
 ```
-FILTER(
-  Contact.emailaddress1 MATCHES_REGEX "^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,}$"
-)
+PROFILE(contact, contact_1)
+  .FILTER(
+    contact_1.emailaddress1 CONTAINS '@' &&
+    contact_1.emailaddress1 ENDSWITH '.com' &&
+    contact_1.emailaddress1 != 'a@b.com'
+  )
 ```
 
 # 🔍 **Features**
