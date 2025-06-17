@@ -23,15 +23,11 @@ FILTER(
 
 # 📂 **Email Query Filter (Hygeine)**
 
-🔠 Filters one or more word characters, dots, or hyphens before the @, A domain name with similar characters, A top-level domain with at least two characters.
+🔠 Filters invalud characters such as dots or hyphens.
 
 ```
 PROFILE(contact, contact_1)
-  .FILTER(
-    contact_1.emailaddress1 CONTAINS '@' &&
-    contact_1.emailaddress1 ENDSWITH '.com' &&
-    contact_1.emailaddress1 != 'a@b.com'
-  )
+    .FILTER(contact_1.emailaddress1 CONTAINS ',' || contact_1.emailaddress1 CONTAINS ';' || contact_1.emailaddress1 CONTAINS '(' || contact_1.emailaddress1 CONTAINS ')' || contact_1.emailaddress1 CONTAINS '"' || contact_1.emailaddress1 CONTAINS '<' || contact_1.emailaddress1 CONTAINS '>' || contact_1.emailaddress1 CONTAINS '\\' || contact_1.emailaddress1 CONTAINS '/' || contact_1.emailaddress1 CONTAINS ':')
 ```
 
 # 🔍 **Features**
