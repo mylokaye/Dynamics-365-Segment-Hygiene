@@ -4,21 +4,27 @@ A powerful and customizable query designed for Microsoft Dynamics 365 Customer I
 
 This query filters contacts whose first names are either: empty, contains a period, or single character. making it ideal for filtering out bad contact records so that you can send personliased campaigns without worrying.
 
-# 📂 **Query Overview**
+# 📂 **First Name Query Filter**
 
 PROFILE(contact, contact_1)
     .FILTER(contact_1.firstname == 'A' || contact_1.firstname == 'B' || contact_1.firstname == 'C' || contact_1.firstname == 'D' || contact_1.firstname == 'E' || contact_1.firstname == 'G' || contact_1.firstname == 'H' || contact_1.firstname == 'I' || contact_1.firstname == 'J' || contact_1.firstname == 'L' || contact_1.firstname == 'M' || contact_1.firstname == 'N' || contact_1.firstname == 'P' || contact_1.firstname == 'R' || contact_1.firstname == 'S' || contact_1.firstname == 'X' || contact_1.firstname == 'd' || contact_1.firstname == 'x' || contact_1.firstname == '.' || contact_1.firstname == '-' || ISNULL(contact_1.firstname))
+
+# 📂 **Email Query Filter**
+
+FILTER(
+  Contact.emailaddress1 MATCHES_REGEX "^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,}$"
+)
 
 
 # 🔍 **Features**
 
 ✅ Ready-to-use for Dynamics 365 Customer Insights - Journeys
 
-🔠 Filters contacts by first name initials
+🔠 Filters bad contat data by first name and email
 
-🧼 Includes null, punctuation, and lowercase edge cases
+🧼 First Name: Filters null, punctuation, lowercase edge cases
 
-🧩 Easily extendable for additional conditions
+🧩 Email: One or more word characters, dots, or hyphens before the @, A domain name with similar characters, A top-level domain with at least two characters
 
 📊 Ideal for excluding bad data for personalsied campaigns
 
@@ -31,7 +37,7 @@ PROFILE(contact, contact_1)
 
 3) Choose New > Query (Designer)
 
-4) Paste the query into the query editor
+4) Paste the query/s into the query editor
 
 5) Save and go live to use in journeys or analytics
 
