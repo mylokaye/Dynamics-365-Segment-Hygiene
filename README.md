@@ -1,8 +1,6 @@
 # Dynamics 365 Segment Hygiene (Filter out bad records)
 
-A powerful and customizable query designed for Microsoft Dynamics 365 Customer Insights - Journeys (formerly Marketing), enabling marketers and CRM admins to create dynamic segments to filter ourt bad / poor quality records. 
-
-This query filters contacts whose first names are either: empty, contains a period, or single character. making it ideal for filtering out bad contact records so that you can send personliased campaigns without worrying.
+A powerful and customizable query designed for Microsoft Dynamics 365 Customer Insights - Journeys (formerly Marketing), enabling marketers and CRM admins to create dynamic segments to filter out poor quality records making it ideal for filtering out contact records so that you can send personliased campaigns with confidence.
 
 # 📂 **First Name Query Filter**
 
@@ -26,7 +24,7 @@ FILTER(
 
 🧩 Email: One or more word characters, dots, or hyphens before the @, A domain name with similar characters, A top-level domain with at least two characters
 
-📊 Ideal for excluding bad data for personalsied campaigns
+📊 Ideal for excluding bad data for personalsied campaigns, improving deliverability and hygiene.
 
 
 # 🛠️ **How to Use**
