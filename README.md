@@ -12,9 +12,13 @@ PROFILE(contact, contact_1)
 
 🔍 **Features**
 ✅ Ready-to-use for Dynamics 365 Customer Insights - Journeys
+
 🔠 Filters contacts by first name initials
+
 🧼 Includes null, punctuation, and lowercase edge cases
+
 🧩 Easily extendable for additional conditions
+
 📊 Ideal for segmenting large contact datasets
 
 
