@@ -1,22 +1,35 @@
-# Dynamics 365 Segment Hygiene (Filter out bad records)
+# Dynamics 365 Segment Hygiene (Exclude poor quality records)
 
 A powerful and customizable set of queries designed for Microsoft Dynamics 365 Customer Insights - Journeys (formerly Marketing), enabling marketers and CRM admins to create dynamic segments to filter out poor quality records so you can send personliased campaigns with confidence.
 
-# 📂 **First Name Query Filter**
+The purpose of these queries is so that you can create a seperate segment of all contact records with bad data, which you can either exclude or send a non-personalised email. 
 
-🔠 Filters poor quality first name data, such as an empty field, period, or single charcters.
+# 📂 **First Name Query Filter (Personalisation)**
 
+🔠 Filters poor quality first name data, such as an empty field, period, or single characters.
+
+```
 PROFILE(contact, contact_1)
     .FILTER(contact_1.firstname == 'A' || contact_1.firstname == 'B' || contact_1.firstname == 'C' || contact_1.firstname == 'D' || contact_1.firstname == 'E' || contact_1.firstname == 'G' || contact_1.firstname == 'H' || contact_1.firstname == 'I' || contact_1.firstname == 'J' || contact_1.firstname == 'L' || contact_1.firstname == 'M' || contact_1.firstname == 'N' || contact_1.firstname == 'P' || contact_1.firstname == 'R' || contact_1.firstname == 'S' || contact_1.firstname == 'X' || contact_1.firstname == 'd' || contact_1.firstname == 'x' || contact_1.firstname == '.' || contact_1.firstname == '-' || ISNULL(contact_1.firstname))
+```
 
-# 📂 **Email Query Filter**
+# 🔍 **Query to Detect All-Caps First Names (Personalisation)**
 
-🔠 Filters one or more word characters, dots, or hyphens before the @, A domain name with similar characters, A top-level domain with at least two characters
+```
+FILTER(
+  Contact.firstname MATCHES_REGEX "^[A-Z]+$"
+)
+```
 
+# 📂 **Email Query Filter (Hygeine)**
+
+🔠 Filters one or more word characters, dots, or hyphens before the @, A domain name with similar characters, A top-level domain with at least two characters.
+
+```
 FILTER(
   Contact.emailaddress1 MATCHES_REGEX "^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,}$"
 )
-
+```
 
 # 🔍 **Features**
 
